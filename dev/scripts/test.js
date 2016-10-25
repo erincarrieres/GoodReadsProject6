@@ -2,7 +2,6 @@ var new_user_input;
 var author_id;
 
 $(function(){
-
     $('#submit-button').on('click', function(){
         var user_input = $('input').val(); //variable to store the value of whatever the user inputs
         new_user_input = user_input.replace(/\s/g, ''); //variable to store user_input WITHOUT any spaces
