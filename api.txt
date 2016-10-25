@@ -1,0 +1,19 @@
+api key: zaTX6u6bYmPadLvnD2VkaA
+
+Searching:
+
+-input form where user types in *
+-submit button *
+-after user submits, returns a list of books from author (highest rated);
+
+Landing Page:
+
+-carousel for best-selling books
+
+What happens when user clicks on book???
+
+-title
+-author
+-description
+-Rating
+-link to goodreads
