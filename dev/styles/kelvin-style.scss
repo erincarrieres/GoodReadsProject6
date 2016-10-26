@@ -29,8 +29,8 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 .book-overlay {
    position: fixed;
-   width: 400px;
-   height: 400px;
+   width: 80%;
+   height: 80%;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
@@ -38,6 +38,9 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
    opacity: 0;
    z-index: -15;
    color: blue;
+   p {
+      padding: 0 10%;
+   }
 }
 
 .book-overlay-fix {
