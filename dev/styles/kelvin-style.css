@@ -151,8 +151,8 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 .book-overlay {
   position: fixed;
-  width: 400px;
-  height: 400px;
+  width: 80%;
+  height: 80%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -160,6 +160,8 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   opacity: 0;
   z-index: -15;
   color: blue; }
+  .book-overlay p {
+    padding: 0 10%; }
 
 .book-overlay-fix {
   opacity: 1;
