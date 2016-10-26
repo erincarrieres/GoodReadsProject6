@@ -94,8 +94,11 @@ myApp.displayNYT = function(randomNumber) {
             return myVars.dupedAuthorArray.indexOf(item) == position;
         });
         console.log(myVars.uniqueAuthorArray);
+        myVars.splicedAuthorArray = myVars.uniqueAuthorArray.splice(0,5);
+        console.log(myVars.splicedAuthorArray);
     });
 };
+
 
 //prints best-selling authors to page
 myApp.printAuthors = function(array){
@@ -127,7 +130,7 @@ myEvents.showAuthor = function(){
     $('#show-authors').on('click', function(e){
         $('#author-list').empty();
         e.preventDefault();
-        myApp.printAuthors(myVars.uniqueAuthorArray);
+        myApp.printAuthors(myVars.splicedAuthorArray);
     })
 };
 
@@ -172,7 +175,7 @@ myApp.init = function(){
     myEvents.onSubmit();
     myEvents.showAuthor();
     myEvents.selectAuthor();
-    myEvents.selectBook();
+    // myEvents.selectBook();
     myEvents.removeOverlay();
     myApp.displayNYT(myApp.randomOffset(0, 1000));
 };
