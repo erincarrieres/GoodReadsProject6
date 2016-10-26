@@ -56,28 +56,29 @@ myApp.getBooks = function(authorID){
         }
     }).then(function(res) {
         console.log(res);
-        myVars.books = res.GoodreadsResponse.author.books.book
+        myVars.books = res.GoodreadsResponse.author.books.book;
         console.log(myVars.books);
-        myApp.getBookImage();
+        myApp.getBookInfo();
     });
     console.log('This should come before goodreads object');
 };
 
 //gets book image URL
-myApp.getBookImage = function(){
+myApp.getBookInfo = function(){
     $('#book-list').empty();
     for (i = 0; i < myVars.books.length; i++) {
         var imageUrl = myVars.books[i].image_url;
+        var bookDescript = myVars.books[i].description;
         var bookTitle = myVars.books[i].title;
-        $('#book-list').append('<li><img src=' + imageUrl + '><br><p>' + bookTitle + '</p></li>');
+        $('#book-list').append('<li><img src=' + imageUrl + '><br><p>' + bookTitle + '</p><br><div class="book-overlay"><p>testing overlay</p><br><img src=' + imageUrl + '><br><button id="close-overlay" type="button">close</button></div></li>');
     }
 };
 
 //gets authors from NYT api
-myApp.displayNYT = function() {
+myApp.displayNYT = function(randomNumber) {
     $.ajax({
         dataType: 'json',
-        url: "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=test&offset=60",
+        url: "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=test&offset=" + randomNumber,
         method: 'GET',
     }).then(function (res) {
         myVars.bestAuthorArray = res.results;
@@ -103,6 +104,13 @@ myApp.printAuthors = function(array){
     }
 };
 
+//gets random number in increments of 20
+myApp.randomOffset = function(min, max){
+    var minimum = Math.ceil(min);
+    var maximum = Math.floor(max);
+    var randomNumber =  Math.floor(Math.random() * (maximum - minimum + 1) + min);
+    return randomNumber * 20;
+}
 
 /* event handlers for web app */
 
@@ -117,6 +125,7 @@ myEvents.onSubmit = function(){
 //**TEMP** click to show author names
 myEvents.showAuthor = function(){
     $('#show-authors').on('click', function(e){
+        $('#author-list').empty();
         e.preventDefault();
         myApp.printAuthors(myVars.uniqueAuthorArray);
     })
@@ -131,13 +140,41 @@ myEvents.selectAuthor = function(){
     })
 };
 
+// myEvents.selectBook = function(){
+//     $('#book-list').on('click', 'li',function(e){
+//         var tag = e.target.tagName;
+//         console.log(tag);
+//         // console.log(e);
+//         // $('#book-list li').css('pointer-events','none');
+//         if (tag == 'IMG' || tag == 'P') {
+//             $(this).find('.book-overlay').addClass('book-overlay-fix');
+//         } else if (tag == 'BUTTON') {
+//             $(this).find('.book-overlay').removeClass('book-overlay-fix');
+//             // $('#book-list li').css('pointer-events','auto');
+//         }
+//
+//         // if ($('#book-list li .book-overlay').hasClass('book-overlay-fix') == true) {
+//         //     console.log(this);
+//         //     $(this).css('pointer-events','auto');
+//         // }
+//     })
+// }
+
+myEvents.removeOverlay = function(){
+    $('#close-overlay').on('click', function(){
+        $('.book-overlay').removeClass('book-overlay-fix');
+        console.log('overlay successfully closed');
+    })
+}
 
 /* initialize other methods */
 myApp.init = function(){
     myEvents.onSubmit();
     myEvents.showAuthor();
     myEvents.selectAuthor();
-    myApp.displayNYT();
+    myEvents.selectBook();
+    myEvents.removeOverlay();
+    myApp.displayNYT(myApp.randomOffset(0, 1000));
 };
 
 //Run on document ready
