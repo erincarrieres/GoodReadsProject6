@@ -80,13 +80,16 @@ myApp.displayNYT = function() {
         url: "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=test&offset=60",
         method: 'GET',
     }).then(function (res) {
+        console.log(res);
         myVars.bestAuthorArray = res.results;
+
 
         for (i = 0; i < myVars.bestAuthorArray.length; i++){
             var authorName = myVars.bestAuthorArray[i].author;
             // console.log(authorName);
             myVars.dupedAuthorArray.push(authorName);
         }
+        // console.log(myVars.bestAuthorArray);
 
         console.log(myVars.dupedAuthorArray);
         myVars.uniqueAuthorArray = myVars.dupedAuthorArray.filter(function(item, position){
