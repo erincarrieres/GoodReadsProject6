@@ -102,9 +102,15 @@ myApp.displayNYT = function(randomNumber) {
         myVars.uniqueAuthorArray = myVars.dupedAuthorArray.filter(function(item, position){ //this filter function removes all duplicate names
             return myVars.dupedAuthorArray.indexOf(item) == position; //makes the comparison between first appearance + index
         });
+// <<<<<<< HEAD
+//         console.log(myVars.uniqueAuthorArray);
+//         myVars.splicedAuthorArray = myVars.uniqueAuthorArray.splice(0,5);
+//         console.log(myVars.splicedAuthorArray);
+// =======
         console.log('Ajax call to NYT successful');
     });
 };
+
 
 //prints best-selling authors to page
 myApp.printAuthors = function(array){ //pass in our unique authors array
@@ -128,6 +134,9 @@ myEvents.showAuthor = function(){
     $('#show-authors').on('click', function(e){
         $('#author-list').empty();
         e.preventDefault();
+// <<<<<<< HEAD
+//         myApp.printAuthors(myVars.splicedAuthorArray);
+// =======
         myApp.printAuthors(myVars.uniqueAuthorArray); //print all the author names from the unique author array
     })
 };
@@ -136,7 +145,7 @@ myEvents.showAuthor = function(){
 myEvents.selectAuthor = function(){
     $('#author-list').on('click', 'a', function(){
         var authorClicked = $(this).text().replace(/\s/g, ''); //remove spaces from the author names again
-        console.log(authorClicked);
+        // console.log(authorClicked);
         myApp.getAuthorID(authorClicked);
     })
 };
