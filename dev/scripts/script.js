@@ -107,10 +107,10 @@ myApp.displayNYT = function(randomNumber) {
         console.log('Ajax call to NYT successful');
         myVars.splicedArray = myVars.uniqueAuthorArray.splice(0,5);
         $('.left-top div').html('<a href="#">' + myVars.splicedArray[0] + '</a>');
-        $('.top-right').html('<a href="#">' + myVars.splicedArray[1] + '</a>');
+        $('.top-right .grid-filter').html('<a href="#">' + myVars.splicedArray[1] + '</a>');
         $('.left-bottom-left div').html('<a href="#">' + myVars.splicedArray[2] + '</a>');
-        $('.left-bottom-small-size').html('<a href="#">' + myVars.splicedArray[3] + '</a>');
-        $('.bottom-right').html('<a href="#">' + myVars.splicedArray[4] + '</a>');
+        $('.left-bottom-small-size .grid-filter').html('<a href="#">' + myVars.splicedArray[3] + '</a>');
+        $('.bottom-right .grid-filter').html('<a href="#">' + myVars.splicedArray[4] + '</a>');
         myApp.changeCenter();
         setInterval(myApp.changeCenter, 1000);
     });
