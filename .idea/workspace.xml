@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c631f59a-1a1b-484b-93b1-da809b13d999" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/ascension.jpg" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/goodReadLogo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heroNav.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/heroNav.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prepros.cfg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/prepros.cfg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/styles/style.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/scripts/script.js" afterPath="$PROJECT_DIR$/dev/scripts/script.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/styles/kelvin-style.css" afterPath="$PROJECT_DIR$/dev/styles/kelvin-style.css" />
@@ -30,24 +36,23 @@
     <splitter split-orientation="horizontal" split-proportion="0.5651042">
       <split-first>
         <leaf>
-          <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/dev/scripts/script.js">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="424">
-                  <caret line="110" column="37" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+                <state relative-caret-position="616">
+                  <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
                   <folding>
-                    <element signature="e#5421#5733#0" expanded="false" />
-                    <element signature="e#5820#6031#0" expanded="false" />
+                    <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/index.html">
+          <file leaf-file-name="heroNav.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/heroNav.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="716">
-                  <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
+                <state relative-caret-position="200">
+                  <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -56,8 +61,8 @@
           <file leaf-file-name="kelvin-style.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/dev/styles/kelvin-style.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-25">
-                  <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+                <state relative-caret-position="200">
+                  <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -70,8 +75,8 @@
           <file leaf-file-name="kelvin-style.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/dev/styles/kelvin-style.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="449">
-                  <caret line="225" column="17" selection-start-line="225" selection-start-column="17" selection-end-line="225" selection-end-column="17" />
+                <state relative-caret-position="255">
+                  <caret line="110" column="16" selection-start-line="110" selection-start-column="14" selection-end-line="110" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -89,8 +94,8 @@
       <list>
         <option value="$PROJECT_DIR$/dev/styles/kelvin-style-2.scss" />
         <option value="$PROJECT_DIR$/dev/styles/kelvin-style.scss" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/dev/scripts/script.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -156,6 +161,20 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="GoodReadsProject6" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GoodReadsProject6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GoodReadsProject6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heroNav.scss" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -242,12 +261,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1477593625439</updated>
-      <workItem from="1477593626595" duration="7678000" />
+      <workItem from="1477593626595" duration="7927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7678000" />
+    <option name="totallyTimeSpent" value="7927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -305,29 +324,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dev/scripts/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3374">
+          <caret line="109" column="71" selection-start-line="109" selection-start-column="71" selection-end-line="109" selection-end-column="71" />
+          <folding>
+            <element signature="e#5470#5782#0" expanded="false" />
+            <element signature="e#5869#6080#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/heroNav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dev/styles/kelvin-style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-25">
-          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        <state relative-caret-position="200">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
-          <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/scripts/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="110" column="37" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
+        <state relative-caret-position="616">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding>
-            <element signature="e#5421#5733#0" expanded="false" />
-            <element signature="e#5820#6031#0" expanded="false" />
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
