@@ -72,11 +72,18 @@ myApp.getBookInfo = function(){
         var imageUrl = myVars.books[i].image_url;
         var bookRating = parseFloat(myVars.books[i].average_rating).toFixed(1);
         var bookTitle = myVars.books[i].title;
+        var bookPages = myVars.books[i].num_pages;
         var bookDate = myVars.books[i].publication_month + ' / ' + myVars.books[i].publication_day + ' / ' + myVars.books[i].publication_year;
-        console.log(bookDate);
 
-        $('#book-list').append('<li><img src=' + imageUrl + '><br><p>' + bookTitle + '</p><br><div class="book-overlay"><p>' + bookTitle + '</p><br><img src=' + imageUrl + '><br><p>Rating: ' + bookRating + ' / 5</p><br><p>Published: ' + bookDate + '</p><br><button id="close-overlay" type="button">close</button></div></li>');
+        $('#book-list').append('<li ' + 'data-pages=' + bookPages + ' data-title="' + bookTitle + '" data-imageUrl=' + imageUrl + ' data-bookRating=' + bookRating + ' data-bookDate="' + bookDate + '"><img src=' + imageUrl + '><br><p>' + bookTitle + '</p><br></li>');
     }
+
+    // <div class="book-overlay"><p>' + bookTitle + '</p><br><img src=' + imageUrl + '><br><p>Rating: ' + bookRating + ' / 5</p><br><p>Published: ' + bookDate + '</p><br><button id="close-overlay" type="button">close</button></div>
+
+    // $('#book-list li').on('click',function(){
+    //     var test = $(this).attr('data-title');
+    //     console.log(test);
+    // })
 };
 
 //gets authors from NYT api
@@ -114,9 +121,7 @@ myApp.printAuthors = function(array){
 
 //gets random number in increments of 20
 myApp.randomOffset = function(min, max){
-    var minimum = Math.ceil(min);
-    var maximum = Math.floor(max);
-    var randomNumber =  Math.floor(Math.random() * (maximum - minimum + 1) + min);
+    var randomNumber =  Math.floor(Math.random() * (max - min + 1) + min);
     return randomNumber * 20;
 }
 
@@ -154,11 +159,19 @@ myEvents.selectBook = function(){
         $('.book-overlay').removeClass('book-overlay-fix');
         var tag = e.target.tagName;
         console.log(tag);
-        if (tag == 'IMG' || tag == 'P') {
-            $(this).find('.book-overlay').addClass('book-overlay-fix');
-        } else if (tag == 'BUTTON') {
-            $(this).find('.book-overlay').removeClass('book-overlay-fix');
-        }
+        // var test = $(this).attr('data-title')
+        if (tag == 'IMG' || tag == 'P' || tag == 'LI') {
+            $('.book-overlay').addClass('book-overlay-fix');
+            $('.book-overlay .book-title').html($(this).attr('data-title'));
+            $('.book-overlay .book-image').attr('src', $(this).attr('data-imageurl'));
+            $('.book-overlay .book-rating').html("Rating: " + $(this).attr('data-bookrating'));
+            $('.book-overlay .book-date').html("Published: " + $(this).attr('data-bookdate'));
+            $('.book-overlay .book-pages').html("Pages: " + $(this).attr('data-pages'));
+        };
+    })
+    $('.book-button').on('click',function(){
+        $('.book-overlay').removeClass('book-overlay-fix');
+        console.log('closed overlay');
     })
 }
 
