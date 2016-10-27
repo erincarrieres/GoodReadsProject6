@@ -53,7 +53,7 @@ myApp.getBooks = function(authorID){ //pass in ANY authorID (in this case, we pa
         dataType: 'json',
         method:'GET',
         data: {
-            reqUrl: `https://www.goodreads.com/author/list.xml`,
+            reqUrl: 'https://www.goodreads.com/author/list.xml',
             params: {
                 key: 'zaTX6u6bYmPadLvnD2VkaA',
                 id: authorID, //make an ajax call with the given authorID
