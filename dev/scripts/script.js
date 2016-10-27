@@ -12,6 +12,12 @@ myVars.uniqueAuthorArray = [];
 
 /* Functions to be Used */
 
+//gets random number in increments of 20
+myApp.randomOffset = function(min, max){
+    var randomNumber =  Math.floor(Math.random() * (max - min + 1) + min);
+    return randomNumber * 20;
+}
+
 //retrieves user input and removes all spaces
 myApp.getUserInput = function(){
     var user_input = $('input').val(); //variable to store the value of whatever the user inputs
@@ -20,7 +26,7 @@ myApp.getUserInput = function(){
 };
 
 //gets author ID + prints book image to page
-myApp.getAuthorID = function(new_input){
+myApp.getAuthorID = function(new_input){ //passes in myVars.new_user_input that was created from 'getUserInput'
 
     $.ajax({ //ajax call through hackeryou proxy to retrieve the author ID given new_user_input
         url: 'http://proxy.hackeryou.com',
@@ -33,15 +39,15 @@ myApp.getAuthorID = function(new_input){
             },
             xmlToJSON: true,
         }
-    }).then(function(res) {
+    }).then(function(res) { //when data is returned.....do stuff below
         console.log(res);
-        var author_id = res.GoodreadsResponse.author.id; //store the author ID into a global variable to be accessed later
-        myApp.getBooks(author_id);
+        var author_id = res.GoodreadsResponse.author.id; //access and store the author ID into a global variable for later
+        myApp.getBooks(author_id); //this makes and ajax call for all the books from the above authorID
     });
 };
 
 //gets all the author's books
-myApp.getBooks = function(authorID){
+myApp.getBooks = function(authorID){ //pass in ANY authorID (in this case, we pass in the same authorID that we converted)
     $.ajax({
         url: 'http://proxy.hackeryou.com',
         dataType: 'json',
@@ -50,97 +56,122 @@ myApp.getBooks = function(authorID){
             reqUrl: `https://www.goodreads.com/author/list.xml`,
             params: {
                 key: 'zaTX6u6bYmPadLvnD2VkaA',
-                id: authorID,
+                id: authorID, //make an ajax call with the given authorID
             },
             xmlToJSON: true,
         }
-    }).then(function(res) {
-        console.log(res);
-        myVars.books = res.GoodreadsResponse.author.books.book
-        console.log(myVars.books);
-        myApp.getBookImage();
+    }).then(function(res) { //after ajax call is complete......do stuff below
+        myVars.books = res.GoodreadsResponse.author.books.book; //store all the books in their own array
+        myApp.getBookInfo(); //get the book info for all the books we just stored
     });
-    console.log('This should come before goodreads object');
 };
 
-//gets book image URL
-myApp.getBookImage = function(){
+//gets all book info, appends it to the array with data attributes
+myApp.getBookInfo = function(){
     $('#book-list').empty();
     for (i = 0; i < myVars.books.length; i++) {
+        //store all the books information into variables
         var imageUrl = myVars.books[i].image_url;
+        var bookRating = parseFloat(myVars.books[i].average_rating).toFixed(1);
         var bookTitle = myVars.books[i].title;
-        $('#book-list').append('<li><img src=' + imageUrl + '><br><p>' + bookTitle + '</p></li>');
+        var bookPages = myVars.books[i].num_pages;
+        var bookDate = myVars.books[i].publication_month + ' / ' + myVars.books[i].publication_day + ' / ' + myVars.books[i].publication_year;
+
+        //for each book in our array, create a list item with data attributes for all the book information in variables
+        $('#book-list').append('<li ' + 'data-pages=' + bookPages + ' data-title="' + bookTitle + '" data-imageUrl=' + imageUrl + ' data-bookRating=' + bookRating + ' data-bookDate="' + bookDate + '"><img src=' + imageUrl + '><br><p>' + bookTitle + '</p><br></li>');
     }
 };
 
-//gets authors from NYT api
-myApp.displayNYT = function() {
-    $.ajax({
+//gets a random set of authors every time page loads
+myApp.displayNYT = function(randomNumber) {
+    $.ajax({ //make an ajax call to NYT API with a random offset
         dataType: 'json',
-        url: "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=test&offset=60",
+        url: "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=test&offset=" + randomNumber,
         method: 'GET',
-    }).then(function (res) {
-        console.log(res);
-        myVars.bestAuthorArray = res.results;
+    }).then(function (res) { //when ajax call is complete, then do stuff below...
+        myVars.bestAuthorArray = res.results; //store all the books in the list into its own array...
 
 
         for (i = 0; i < myVars.bestAuthorArray.length; i++){
-            var authorName = myVars.bestAuthorArray[i].author;
+            var authorName = myVars.bestAuthorArray[i].author; //this variable holds just the author names for each book
             // console.log(authorName);
-            myVars.dupedAuthorArray.push(authorName);
+            myVars.dupedAuthorArray.push(authorName); //for each book in the array, store ONLY the author names in its own array
         }
         // console.log(myVars.bestAuthorArray);
 
-        console.log(myVars.dupedAuthorArray);
-        myVars.uniqueAuthorArray = myVars.dupedAuthorArray.filter(function(item, position){
-            return myVars.dupedAuthorArray.indexOf(item) == position;
+        myVars.uniqueAuthorArray = myVars.dupedAuthorArray.filter(function(item, position){ //this filter function removes all duplicate names
+            return myVars.dupedAuthorArray.indexOf(item) == position; //makes the comparison between first appearance + index
         });
-        console.log(myVars.uniqueAuthorArray);
+        console.log('Ajax call to NYT successful');
     });
 };
 
 //prints best-selling authors to page
-myApp.printAuthors = function(array){
-    for (i = 0; i < array.length; i++) {
+myApp.printAuthors = function(array){ //pass in our unique authors array
+    for (i = 0; i < array.length; i++) { //for each author name, print it out in a list item
         $('#author-list').append('<li class="author-list-item"><a href="#">' + array[i] + '</a></li>');
     }
 };
 
-
 /* event handlers for web app */
 
-//when submitted, grab user input + display books
+//when submitted....
 myEvents.onSubmit = function(){
     $('#submit-button').on('click', function(){
-        myApp.getUserInput();
-        myApp.getAuthorID(myVars.new_user_input);
+        myApp.getUserInput(); //grab the user input
+        myApp.getAuthorID(myVars.new_user_input); //and turn it into an authorID + display the books
     })
 };
 
 //**TEMP** click to show author names
 myEvents.showAuthor = function(){
     $('#show-authors').on('click', function(e){
+        $('#author-list').empty();
         e.preventDefault();
-        myApp.printAuthors(myVars.uniqueAuthorArray);
+        myApp.printAuthors(myVars.uniqueAuthorArray); //print all the author names from the unique author array
     })
 };
 
 //when author name is clicked, display books
 myEvents.selectAuthor = function(){
     $('#author-list').on('click', 'a', function(){
-        var authorClicked = $(this).text().replace(/\s/g, '');
+        var authorClicked = $(this).text().replace(/\s/g, ''); //remove spaces from the author names again
         console.log(authorClicked);
         myApp.getAuthorID(authorClicked);
     })
 };
 
+//when book is clicked, UPDATE and replace text in overlay + reveal it
+myEvents.selectBook = function(){
+    $('#book-list').on('click', 'li',function(e){
+        $('.book-overlay').removeClass('book-overlay-fix');
+        var tag = e.target.tagName;
+        console.log(tag);
+        // var test = $(this).attr('data-title')
+        if (tag == 'IMG' || tag == 'P' || tag == 'LI') {
+            $('.book-overlay').addClass('book-overlay-fix');
+            $('.book-overlay .book-title').html($(this).attr('data-title'));
+            $('.book-overlay .book-image').attr('src', $(this).attr('data-imageurl'));
+            $('.book-overlay .book-rating').html("Rating: " + $(this).attr('data-bookrating'));
+            $('.book-overlay .book-date').html("Published: " + $(this).attr('data-bookdate'));
+            $('.book-overlay .book-pages').html("Pages: " + $(this).attr('data-pages'));
+        };
+    })
+
+    //when close button is clicked, make the overlay disappear
+    $('.book-button').on('click',function(){
+        $('.book-overlay').removeClass('book-overlay-fix');
+        console.log('closed overlay');
+    })
+}
 
 /* initialize other methods */
 myApp.init = function(){
     myEvents.onSubmit();
     myEvents.showAuthor();
     myEvents.selectAuthor();
-    myApp.displayNYT();
+    myEvents.selectBook();
+    myApp.displayNYT(myApp.randomOffset(0, 1000));
 };
 
 //Run on document ready
