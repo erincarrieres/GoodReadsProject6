@@ -93,11 +93,13 @@ myApp.displayNYT = function(randomNumber) {
     }).then(function (res) { //when ajax call is complete, then do stuff below...
         myVars.bestAuthorArray = res.results; //store all the books in the list into its own array...
 
+
         for (i = 0; i < myVars.bestAuthorArray.length; i++){
             var authorName = myVars.bestAuthorArray[i].author; //this variable holds just the author names for each book
             // console.log(authorName);
             myVars.dupedAuthorArray.push(authorName); //for each book in the array, store ONLY the author names in its own array
         }
+        // console.log(myVars.bestAuthorArray);
 
         myVars.uniqueAuthorArray = myVars.dupedAuthorArray.filter(function(item, position){ //this filter function removes all duplicate names
             return myVars.dupedAuthorArray.indexOf(item) == position; //makes the comparison between first appearance + index
