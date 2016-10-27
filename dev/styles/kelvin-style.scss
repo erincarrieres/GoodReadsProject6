@@ -5,6 +5,11 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+$blue: #2E536B;
+$teal: #00D1B4;
+$peach: #D74F36;
+$red: #9E1110;
+
 h1, p {
    margin: 0;
 }
@@ -28,7 +33,7 @@ body {
    background-position: center center;
    position: relative;
    .hero-left {
-      width: 50%;
+      width: 60%;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -44,12 +49,20 @@ body {
    position: fixed;
    top: 0;
    width: 100%;
-   background: rgba(0, 0, 0, 0.7);
+   background: $peach;
    display: flex;
    flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
    color: white;
    opacity: 0;
    transition: 0.75s;
+   padding: 0.5% 2% 0.5% 0.5%;
+   font-family: 'Work Sans', sans-serif;
+   img {
+      width: 3%;
+      height: 100%;
+   }
 }
 
 .hero-left-title {
@@ -58,6 +71,10 @@ body {
    flex-wrap: wrap;
    align-items: center;
    justify-content: center;
+}
+
+.red {
+   color: $peach;
 }
 
 /* Book Display Styling */
@@ -161,9 +178,10 @@ body {
 .left-bottom-small {
    flex: 1 0 calc(100% - 10px);
    height: calc(50% - 10px);
-   background: lightgreen;
+   background: white;
    margin-top: 10px;
    display: flex;
+   color: black;
    flex-direction: column;
    justify-content: center;
    align-items: center;

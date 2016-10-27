@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="./dev/scripts/script.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
     <link rel="stylesheet" href="dev/styles/kelvin-style.css">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:700" rel="stylesheet">
     <link rel="stylesheet" href="heroNav.css">
+    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
     <script>
         $(window).scroll(function () {
             var vH = $(window).height();
@@ -24,15 +24,15 @@
 <body>
     <section class="hero">
         <div class="hero-nav">
-            <p>logo</p>
+            <img src="assets/goodReadLogo.png" alt="">
             <p>search bar</p>
         </div>
         <div class="hero-left">
             <div class="hero-left-title">
                 <img src="assets/goodReadLogo.png" alt="">
-                <h1>Book it.</h1>
+                <h1>Book it<span class="red">.</span></h1>
             </div>
-            <input id="input" type="text" placeholder="Author's name goes here.">
+            <input id="input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Author Name'" spellcheck="false" type="text" placeholder="Author Name">
             <button id="submit-button" type="button">SUBMIT</button>
         </div>
     </section>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="left-bottom-right">
                     <div class="left-bottom-small">
-                        <div class="grid-filter">
+                        <div class="blah">
                             <div class="grid-title">center</div>
                             <div class="grid-tagline" >popular authors</div>
                         </div>
