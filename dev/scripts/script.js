@@ -143,7 +143,7 @@ myEvents.showAuthor = function(){
 myEvents.selectAuthor = function(){
     $('#author-list').on('click', 'a', function(){
         var authorClicked = $(this).text().replace(/\s/g, ''); //remove spaces from the author names again
-        console.log(authorClicked);
+        // console.log(authorClicked);
         myApp.getAuthorID(authorClicked);
     })
 };
