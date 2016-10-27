@@ -100,13 +100,12 @@ myApp.displayNYT = function(randomNumber) {
         myVars.uniqueAuthorArray = myVars.dupedAuthorArray.filter(function(item, position){ //this filter function removes all duplicate names
             return myVars.dupedAuthorArray.indexOf(item) == position; //makes the comparison between first appearance + index
         });
-<<<<<<< HEAD
-        console.log(myVars.uniqueAuthorArray);
-        myVars.splicedAuthorArray = myVars.uniqueAuthorArray.splice(0,5);
-        console.log(myVars.splicedAuthorArray);
-=======
+// <<<<<<< HEAD
+//         console.log(myVars.uniqueAuthorArray);
+//         myVars.splicedAuthorArray = myVars.uniqueAuthorArray.splice(0,5);
+//         console.log(myVars.splicedAuthorArray);
+// =======
         console.log('Ajax call to NYT successful');
->>>>>>> 426bcc53ca0ebe6f3767c88410dcac20b5105038
     });
 };
 
