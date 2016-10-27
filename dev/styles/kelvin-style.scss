@@ -29,15 +29,20 @@ input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}b
 
 .book-overlay {
    position: fixed;
-   width: 80%;
-   height: 80%;
+   width: calc(100% - 50px);
+   height: calc(100% - 50px);
    top: 50%;
    left: 50%;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
    transform: translate(-50%, -50%);
-   background: rgba(0, 0, 0, 0.3);
+   background: rgba(0, 0, 0, 0.75);
    opacity: 0;
    z-index: -15;
-   color: blue;
+   color: white;
    p {
       padding: 0 10%;
    }
