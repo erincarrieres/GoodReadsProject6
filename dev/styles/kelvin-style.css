@@ -135,6 +135,13 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 h1, p {
   margin: 0; }
 
+a {
+  text-decoration: none;
+  color: inherit; }
+
+body {
+  font-size: 15px; }
+
 /* Hero Styling */
 .hero {
   height: 100vh;
@@ -213,10 +220,13 @@ h1, p {
   z-index: 15; }
 
 .grid {
-  height: 80vh;
+  height: 150vh;
   max-width: 750px;
   display: flex;
-  margin: 0 auto; }
+  margin: 5% auto;
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Work Sans', sans-serif; }
 
 .left-side {
   width: calc(66.6% - 10px);
@@ -226,7 +236,14 @@ h1, p {
 .left-top {
   height: 33.3%;
   width: 100%;
-  border: 1px dotted black; }
+  background: url("../../assets/unsplash-writing-2.jpeg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
 
 .left-bottom {
   width: 100%;
@@ -237,9 +254,16 @@ h1, p {
 .left-bottom-left {
   flex: 1 0 calc(50% - 10px);
   height: calc(100% - 10px);
-  border: 1px dotted black;
   margin-right: 10px;
-  margin-top: 10px; }
+  margin-top: 10px;
+  background: url("../../assets/unsplash-writing-5.jpeg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
 
 .left-bottom-right {
   width: 50%;
@@ -249,7 +273,12 @@ h1, p {
   flex: 1 0 calc(100% - 10px);
   height: calc(50% - 10px);
   background: lightgreen;
-  margin-top: 10px; }
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
   .left-bottom-small img {
     width: 50%;
     height: 50%; }
@@ -257,8 +286,15 @@ h1, p {
 .left-bottom-small-size {
   width: 100%;
   height: calc(50% - 10px);
-  border: 1px dotted black;
-  margin-top: 10px; }
+  margin-top: 10px;
+  background: url("../../assets/unsplash-writing-3.jpeg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
 
 .right-side {
   width: 33.3%;
@@ -267,12 +303,36 @@ h1, p {
 .top-right {
   width: 100%;
   height: 66.6%;
-  border: 1px dotted black; }
+  background: url("../../assets/unsplash-writing-4.jpeg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
 
 .bottom-right {
   width: 100%;
   height: calc(33.3% - 10px);
-  border: 1px dotted black;
-  margin-top: 10px; }
+  margin-top: 10px;
+  background: url("../../assets/unsplash-writing-desk.jpeg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+
+.grid-filter {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
 
 /*# sourceMappingURL=kelvin-style.css.map */
