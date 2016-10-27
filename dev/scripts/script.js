@@ -9,6 +9,8 @@ myVars.books = null;
 myVars.bestAuthorArray = null;
 myVars.dupedAuthorArray = [];
 myVars.uniqueAuthorArray = [];
+myVars.splicedArray = [];
+myVars.bookCounter = 0;
 
 /* Functions to be Used */
 
@@ -53,7 +55,7 @@ myApp.getBooks = function(authorID){ //pass in ANY authorID (in this case, we pa
         dataType: 'json',
         method:'GET',
         data: {
-            reqUrl: `https://www.goodreads.com/author/list.xml`,
+            reqUrl: 'https://www.goodreads.com/author/list.xml',
             params: {
                 key: 'zaTX6u6bYmPadLvnD2VkaA',
                 id: authorID, //make an ajax call with the given authorID
@@ -100,22 +102,26 @@ myApp.displayNYT = function(randomNumber) {
         myVars.uniqueAuthorArray = myVars.dupedAuthorArray.filter(function(item, position){ //this filter function removes all duplicate names
             return myVars.dupedAuthorArray.indexOf(item) == position; //makes the comparison between first appearance + index
         });
-// <<<<<<< HEAD
-//         console.log(myVars.uniqueAuthorArray);
-//         myVars.splicedAuthorArray = myVars.uniqueAuthorArray.splice(0,5);
-//         console.log(myVars.splicedAuthorArray);
-// =======
         console.log('Ajax call to NYT successful');
+        myVars.splicedArray = myVars.uniqueAuthorArray.splice(0,5);
+        $('.left-top div').html('<a href="#">' + myVars.splicedArray[0] + '</a>');
+        $('.top-right').html('<a href="#">' + myVars.splicedArray[1] + '</a>');
+        $('.left-bottom-left div').html('<a href="#">' + myVars.splicedArray[2] + '</a>');
+        $('.left-bottom-small-size').html('<a href="#">' + myVars.splicedArray[3] + '</a>');
+        $('.bottom-right').html('<a href="#">' + myVars.splicedArray[4] + '</a>');
+        myApp.changeCenter();
+        setInterval(myApp.changeCenter, 1000);
     });
 };
 
-
-//prints best-selling authors to page
-myApp.printAuthors = function(array){ //pass in our unique authors array
-    for (i = 0; i < array.length; i++) { //for each author name, print it out in a list item
-        $('#author-list').append('<li class="author-list-item"><a href="#">' + array[i] + '</a></li>');
+myApp.changeCenter = function(){
+    if (myVars.bookCounter > myVars.uniqueAuthorArray.length - 1) {
+        myVars.bookCounter = 0;
     }
-};
+    $('.left-bottom-small .grid-title').html('<a href="#">' + myVars.uniqueAuthorArray[myVars.bookCounter] + '</a>');
+    myVars.bookCounter += 1;
+    // $('.left-bottom-small .grid-image').attr('src',)
+}
 
 /* event handlers for web app */
 
@@ -127,21 +133,10 @@ myEvents.onSubmit = function(){
     })
 };
 
-//**TEMP** click to show author names
-myEvents.showAuthor = function(){
-    $('#show-authors').on('click', function(e){
-        $('#author-list').empty();
-        e.preventDefault();
-// <<<<<<< HEAD
-//         myApp.printAuthors(myVars.splicedAuthorArray);
-// =======
-        myApp.printAuthors(myVars.uniqueAuthorArray); //print all the author names from the unique author array
-    })
-};
-
 //when author name is clicked, display books
 myEvents.selectAuthor = function(){
-    $('#author-list').on('click', 'a', function(){
+    $('.grid').on('click', 'a', function(e){
+        e.preventDefault();
         var authorClicked = $(this).text().replace(/\s/g, ''); //remove spaces from the author names again
         // console.log(authorClicked);
         myApp.getAuthorID(authorClicked);
@@ -175,7 +170,6 @@ myEvents.selectBook = function(){
 /* initialize other methods */
 myApp.init = function(){
     myEvents.onSubmit();
-    myEvents.showAuthor();
     myEvents.selectAuthor();
     myEvents.selectBook();
     myApp.displayNYT(myApp.randomOffset(0, 1000));
