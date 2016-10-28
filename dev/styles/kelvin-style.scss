@@ -185,7 +185,7 @@ body {
 .left-top {
    height: 33.3%;
    width: 100%;
-   background: url('../../assets/unsplash-writing-2.jpeg');
+   // background: url('../../assets/unsplash-writing-2.jpeg');
    background-size: cover;
    background-position: center center;
    display: flex;
@@ -193,7 +193,29 @@ body {
    justify-content: center;
    align-items: center;
    text-align: center;
+   position:relative;
+   overflow:hidden;
 }
+
+.left-top:after {
+  content: '';
+  position: absolute;
+  display:block;
+  z-index:-1;
+  top: 0;
+  left: 0;
+  bottom:0;
+  right:0;
+  background: url('../../assets/unsplash-writing-2.jpeg') no-repeat center;
+  opacity:0.8;
+  background-size: cover;
+}
+
+.left-top:hover:after{
+    -webkit-filter: blur(5px);
+}
+
+
 .left-bottom {
    width: 100%;
    height: 66.6%;
