@@ -121,15 +121,15 @@ body {
          transform: scale(1.1);
       }
       p {
-         margin-top: 15px;
+         margin-top: 20px;
          position: relative;
          &:after {
             content: '';
-            width: 50%;
+            width: 112px;
             background: $teal;
             height: 2px;
             position: absolute;
-            top: 0;
+            top: -10px;
             left: 50%;
             transform: translate(-50%,-50%);
          }
