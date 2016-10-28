@@ -28,7 +28,7 @@ body {
 .hero {
    height: 100vh;
    width: 100%;
-   background: url('../../assets/hero-image.jpg');
+   background: url('../../assets/hero-image-compressor.jpg');
    background-size: cover;
    background-position: center center;
    position: relative;
@@ -69,19 +69,23 @@ body {
    font-family: 'Work Sans', sans-serif;
    .hero-nav-left {
       display: flex;
+      flex: 1 0 25%;
       flex-direction: row;
       align-items: center;
       span {
          color: white;
       }
       img {
-         width: 5%;
+         width: 32px;
          height: 100%;
          margin-right: 10px;
       }
       p {
          font-size: 1.3rem;
       }
+   }
+   .hero-nav-right {
+      float: right;
    }
 }
 
@@ -103,6 +107,10 @@ body {
 }
 
 /* Book Display Styling */
+
+#book-section {
+   padding-top: 65px;
+}
 
 #book-list {
    display: flex;
@@ -140,25 +148,44 @@ body {
       }
    }
 }
+.overlay-container {
+   display: flex;
+   flex-wrap: wrap;
+}
 
 .book-overlay {
    position: fixed;
-   width: calc(100% - 50px);
-   height: calc(100% - 50px);
+   width: 500px;
+   height: 400px;
    top: 50%;
    left: 50%;
    text-align: center;
    display: flex;
-   flex-direction: column;
+   flex-wrap: wrap;  
    justify-content: center;
    align-items: center;
    transform: translate(-50%, -50%);
-   background: rgba(0, 0, 0, 0.75);
+   background: rgba(0, 0, 0, 0.9);
    opacity: 0;
    z-index: -15;
    color: white;
-   p {
-      padding: 0 10%;
+   border: 5px solid $blue;
+   padding: 3% 5%;
+   .book-title {
+      flex: 1 0 100%;
+      margin-bottom: 40px;
+      font-family: Work Sans;
+   }
+   .book-image {
+      flex: 1 0 40%;
+   }
+   .book-overlay-right {
+      flex: 1 0 calc(60% - 17px);
+      margin-left: 17px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
    }
 }
 
@@ -167,11 +194,14 @@ body {
    z-index: 15;
 }
 
+
+
 .grid {
    height: 150vh;
    max-width: 750px;
    display: flex;
-   margin: 5% auto;
+   margin: 0 auto;
+   padding: 65px;
    color: white;
    font-size: 1.5rem;
    font-family: 'Work Sans', sans-serif;
@@ -205,8 +235,9 @@ body {
   top: 0;
   left: 0;
   bottom:0;
+  transition: 0.5s;
   right:0;
-  background: url('../../assets/unsplash-writing-2.jpeg') no-repeat center;
+  background: url('../../assets/unsplash-writing-2-compressor.jpeg') no-repeat center;
   opacity:0.8;
   background-size: cover;
 }
@@ -246,8 +277,9 @@ body {
   top: 0;
   left: 0;
   bottom:0;
+  transition: 0.5s;
   right:0;
-  background:  url('../../assets/unsplash-writing-5.jpeg') no-repeat center;
+  background:  url('../../assets/unsplash-writing-5-compressor.jpeg') no-repeat center;
   opacity:0.8;
   background-size: cover;
 }
@@ -275,22 +307,7 @@ body {
       width: 50%;
       height: 50%;
    }
-}
-
-.blah {
-   position: relative;
-   padding: 0 10px;
-   &:after {
-      content: '';
-      height: 2px;
-      background: $teal;
-      width: 55%;
-      position: absolute;
-      transform: translate(-50%,-50%);
-      top: calc(100% + 20px);
-      left: 50%;
-   }
-}
+} 
 
 .left-bottom-small-size {
    width: 100%;
@@ -313,10 +330,11 @@ body {
   display:block;
   z-index:-1;
   top: 0;
+  transition: 0.5s;
   left: 0;
   bottom:0;
   right:0;
-  background: url('../../assets/unsplash-writing-3.jpeg') no-repeat center;
+  background: url('../../assets/unsplash-writing-3-compressor.jpeg') no-repeat center;
   opacity:0.8;
   background-size: cover;
 }
@@ -350,9 +368,10 @@ body {
   z-index:-1;
   top: 0;
   left: 0;
+  transition: 0.5s;
   bottom:0;
   right:0;
-  background: url('../../assets/unsplash-writing-4.jpeg') no-repeat center;
+  background: url('../../assets/unsplash-writing-4-compressor.jpeg') no-repeat center;
   opacity:0.8;
   background-size: cover;
 }
@@ -383,9 +402,10 @@ body {
   z-index:-1;
   top: 0;
   left: 0;
+  transition: 0.5s;
   bottom:0;
   right:0;
-  background: url('../../assets/unsplash-writing-desk.jpeg') no-repeat center;
+  background: url('../../assets/unsplash-writing-desk-compressor.jpeg') no-repeat center;
   opacity:0.8;
   background-size: cover;
 }
@@ -393,11 +413,26 @@ body {
 .bottom-right:hover:after{
     -webkit-filter: blur(5px);
 }
+.blah {
+   padding: 0 10px;
+}
 
 .grid-tagline {
    font-size: 0.7rem;
    text-transform: uppercase;
    color: $peach;
+   margin-top: 20px;
+   position: relative;
+   &:after {
+      content: '';
+      height: 2px;
+      background: $teal;
+      width: 55%;
+      position: absolute;
+      transform: translate(-50%,-50%);
+      top: -10px;
+      left: 50%;
+   }
 }
 
 .grid-filter {
@@ -423,6 +458,17 @@ body {
          left: 50%;
       }
    }
+}
+
+.grid-press {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   cursor: pointer;
+   height: 100%;
+   width: 100%;
 }
 
 .hero-left-title {
@@ -465,10 +511,75 @@ body {
    }
 }
 
-form {
-   width: 100%;
+.hero-left form {
+   width: 110%;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+}
+
+.hero-nav {
+   input {
+    outline: none;
+   }
+   input::-webkit-search-decoration,
+   input::-webkit-search-cancel-button {
+    display: none; 
+   }
+   input[type=search] {
+     -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    // font-size: 100%;
+    background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 55px;
+    
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+    
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+   }
+
+   input:-moz-placeholder {
+    color: #999;
+   }
+   input::-webkit-input-placeholder {
+    color: #999;
+   }
+   #magnify input[type=search] {
+    width: 15px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+   }
+   #magnify input[type=search]:hover {
+    background-color: #fff;
+   }
+   #magnify input[type=search]:focus {
+    width: 165px;
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    cursor: auto;
+   }
+   #magnify input:-moz-placeholder {
+    color: transparent;
+   }
+   #magnify input::-webkit-input-placeholder {
+    color: transparent;
+   }
+}
+
+span.test {
+   border-bottom: 1px solid black;
+   transition: 0.5s;
+   &:hover {
+      color: $peach;
+   }
 }
