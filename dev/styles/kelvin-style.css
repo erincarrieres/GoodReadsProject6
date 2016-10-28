@@ -288,17 +288,17 @@ body {
 }
 
 #book-list li p {
-  margin-top: 15px;
+  margin-top: 20px;
   position: relative;
 }
 
 #book-list li p:after {
   content: '';
-  width: 50%;
+  width: 112px;
   background: #00D1B4;
   height: 2px;
   position: absolute;
-  top: 0;
+  top: -10px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -395,7 +395,6 @@ body {
   height: calc(100% - 10px);
   margin-right: 10px;
   margin-top: 10px;
-  background: url("../../assets/unsplash-writing-5.jpeg");
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -403,6 +402,25 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
+}
+
+.left-bottom-left:after {
+  content: '';
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url("../../assets/unsplash-writing-5.jpeg") no-repeat center;
+  opacity: 0.8;
+  background-size: cover;
+}
+
+.left-bottom-left:hover:after {
+  -webkit-filter: blur(5px);
 }
 
 .left-bottom-right {
@@ -448,7 +466,6 @@ body {
   width: 100%;
   height: calc(50% - 10px);
   margin-top: 10px;
-  background: url("../../assets/unsplash-writing-3.jpeg");
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -456,6 +473,25 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
+}
+
+.left-bottom-small-size:after {
+  content: '';
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url("../../assets/unsplash-writing-3.jpeg") no-repeat center;
+  opacity: 0.8;
+  background-size: cover;
+}
+
+.left-bottom-small-size:hover:after {
+  -webkit-filter: blur(5px);
 }
 
 .right-side {
@@ -466,7 +502,38 @@ body {
 .top-right {
   width: 100%;
   height: 66.6%;
-  background: url("../../assets/unsplash-writing-4.jpeg");
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.top-right:after {
+  content: '';
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url("../../assets/unsplash-writing-4.jpeg") no-repeat center;
+  opacity: 0.8;
+  background-size: cover;
+}
+
+.top-right:hover:after {
+  -webkit-filter: blur(5px);
+}
+
+.bottom-right {
+  width: 100%;
+  height: calc(33.3% - 10px);
+  margin-top: 10px;
   background-size: cover;
   background-position: center center;
   display: flex;
@@ -476,18 +543,22 @@ body {
   text-align: center;
 }
 
-.bottom-right {
-  width: 100%;
-  height: calc(33.3% - 10px);
-  margin-top: 10px;
-  background: url("../../assets/unsplash-writing-desk.jpeg");
+.bottom-right:after {
+  content: '';
+  position: absolute;
+  display: block;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url("../../assets/unsplash-writing-desk.jpeg") no-repeat center;
+  opacity: 0.8;
   background-size: cover;
-  background-position: center center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+}
+
+.bottom-right:hover:after {
+  -webkit-filter: blur(5px);
 }
 
 .grid-tagline {
@@ -521,4 +592,53 @@ body {
   transform: translate(-50%, -50%);
   top: calc(100% + 20px);
   left: 50%;
+}
+
+.hero-left-title img {
+  width: 22%;
+  margin-left: -5%;
+}
+
+.hero-left-title h1 {
+  font-size: 120px;
+}
+
+.hero .hero-left #input {
+  margin: 10% 0 3% 0;
+  width: 60%;
+  border: none;
+  background: none;
+  border-bottom: 3px solid black;
+  text-align: center;
+  font-size: 1.8rem;
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+.hero .hero-left #input:focus {
+  outline: none;
+}
+
+#submit-button {
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: bolder;
+  margin: 0;
+  background: none;
+  padding: 1.5% 5.5%;
+  border: 3px solid black;
+  transition: 0.5s;
+}
+
+#submit-button:hover {
+  background: #D74F36;
+  color: white;
+  border: 3px solid transparent;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
