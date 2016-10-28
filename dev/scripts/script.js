@@ -129,15 +129,17 @@ myApp.changeCenter = function(){
 
 //when submitted....
 myEvents.onSubmit = function(){
-    $('#submit-button').on('click', function(){
+    $('form').submit(function(e) {
+        e.preventDefault();
         myApp.getUserInput(); //grab the user input
         myApp.getAuthorID(myVars.new_user_input); //and turn it into an authorID + display the books
+        $('form').trigger('reset');
     })
 };
 
 //when author name is clicked, display books
 myEvents.selectAuthor = function(){
-    $('.grid').on('click', 'a', function(e){
+    $('.grid').on('click', '.grid-filter', function(e){
         e.preventDefault();
         var authorClicked = $(this).text().replace(/\s/g, ''); //remove spaces from the author names again
         // console.log(authorClicked);
