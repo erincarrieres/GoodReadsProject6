@@ -1,8 +1,11 @@
 .hero-left-title img {
   width: 22%;
-  margin-left: -5%; }
+  margin-left: -5%;
+}
+
 .hero-left-title h1 {
-  font-size: 120px; }
+  font-size: 120px;
+}
 
 .hero .hero-left #input {
   margin: 10% 0 3% 0;
@@ -12,9 +15,12 @@
   border-bottom: 3px solid black;
   text-align: center;
   font-size: 1.8rem;
-  font-family: 'Nothing You Could Do', cursive; }
-  .hero .hero-left #input:focus {
-    outline: none; }
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+.hero .hero-left #input:focus {
+  outline: none;
+}
 
 #submit-button {
   font-family: inherit;
@@ -24,17 +30,19 @@
   background: none;
   padding: 1.5% 5.5%;
   border: 3px solid black;
-  transition: 0.5s; }
-  #submit-button:hover {
-    background: #D74F36;
-    color: white;
-    border: 3px solid transparent; }
+  transition: 0.5s;
+}
+
+#submit-button:hover {
+  background: #D74F36;
+  color: white;
+  border: 3px solid transparent;
+}
 
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
-
-/*# sourceMappingURL=heroNav.css.map */
+  align-items: center;
+}
