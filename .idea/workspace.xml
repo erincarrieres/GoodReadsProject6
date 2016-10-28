@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c631f59a-1a1b-484b-93b1-da809b13d999" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grid-week6project/assets/unsplash-writing-2.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grid-week6project/assets/unsplash-writing-3.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grid-week6project/assets/unsplash-writing-4.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grid-week6project/assets/unsplash-writing-5.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grid-week6project/assets/unsplash-writing-6.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grid-week6project/assets/unsplash-writing-desk.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grid-week6project/grid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prepros.cfg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/prepros.cfg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/styles/style.scss" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/scripts/script.js" afterPath="$PROJECT_DIR$/dev/scripts/script.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/styles/kelvin-style.css" afterPath="$PROJECT_DIR$/dev/styles/kelvin-style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dev/styles/kelvin-style.scss" afterPath="$PROJECT_DIR$/dev/styles/kelvin-style.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heroNav.css" afterPath="$PROJECT_DIR$/heroNav.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/heroNav.scss" afterPath="$PROJECT_DIR$/heroNav.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="GoodReadsProject6.iws" />
@@ -45,8 +32,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="311">
-                  <caret line="41" column="103" selection-start-line="41" selection-start-column="103" selection-end-line="41" selection-end-column="103" />
+                <state relative-caret-position="686">
+                  <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
                   <folding>
                     <element signature="n#section#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
@@ -73,8 +60,8 @@
           <file leaf-file-name="kelvin-style.scss" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/dev/styles/kelvin-style.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="591">
-                  <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
+                <state relative-caret-position="305">
+                  <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -333,12 +320,12 @@
       <updated>1477593625439</updated>
       <workItem from="1477593626595" duration="12654000" />
       <workItem from="1477618640096" duration="4132000" />
-      <workItem from="1477627835309" duration="3131000" />
+      <workItem from="1477627835309" duration="4716000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19917000" />
+    <option name="totallyTimeSpent" value="21502000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -474,21 +461,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/dev/styles/kelvin-style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="41" column="103" selection-start-line="41" selection-start-column="103" selection-end-line="41" selection-end-column="103" />
-          <folding>
-            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="305">
+          <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/styles/kelvin-style.scss">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="686">
+          <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
+          <folding>
+            <element signature="n#section#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

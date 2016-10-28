@@ -225,15 +225,15 @@ body {
     #book-list li:hover {
       transform: scale(1.1); }
     #book-list li p {
-      margin-top: 15px;
+      margin-top: 20px;
       position: relative; }
       #book-list li p:after {
         content: '';
-        width: 50%;
+        width: 112px;
         background: #00D1B4;
         height: 2px;
         position: absolute;
-        top: 0;
+        top: -10px;
         left: 50%;
         transform: translate(-50%, -50%); }
     #book-list li img {
