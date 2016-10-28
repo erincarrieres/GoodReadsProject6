@@ -227,7 +227,7 @@ body {
    height: calc(100% - 10px);
    margin-right: 10px;
    margin-top: 10px;
-   background: url('../../assets/unsplash-writing-5.jpeg');
+   // background: url('../../assets/unsplash-writing-5.jpeg');
    background-size: cover;
    background-position: center center;
    display: flex;
@@ -235,7 +235,27 @@ body {
    justify-content: center;
    align-items: center;
    text-align: center;
+   position:relative;
 }
+
+.left-bottom-left:after {
+  content: '';
+  position: absolute;
+  display:block;
+  z-index:-1;
+  top: 0;
+  left: 0;
+  bottom:0;
+  right:0;
+  background:  url('../../assets/unsplash-writing-5.jpeg') no-repeat center;
+  opacity:0.8;
+  background-size: cover;
+}
+
+.left-bottom-left:hover:after{
+    -webkit-filter: blur(5px);
+}
+
 .left-bottom-right {
    width: 50%;
    height: 100%;
@@ -276,7 +296,7 @@ body {
    width: 100%;
    height: calc(50% - 10px);
    margin-top: 10px;
-   background: url('../../assets/unsplash-writing-3.jpeg');
+   // background: url('../../assets/unsplash-writing-3.jpeg');
    background-size: cover;
    background-position: center center;
    display: flex;
@@ -284,6 +304,25 @@ body {
    justify-content: center;
    align-items: center;
    text-align: center;
+   position:relative;
+}
+
+.left-bottom-small-size:after {
+  content: '';
+  position: absolute;
+  display:block;
+  z-index:-1;
+  top: 0;
+  left: 0;
+  bottom:0;
+  right:0;
+  background: url('../../assets/unsplash-writing-3.jpeg') no-repeat center;
+  opacity:0.8;
+  background-size: cover;
+}
+
+.left-bottom-small-size:hover:after{
+    -webkit-filter: blur(5px);
 }
 
 .right-side {
@@ -293,7 +332,7 @@ body {
 .top-right {
    width: 100%;
    height: 66.6%;
-   background: url('../../assets/unsplash-writing-4.jpeg');
+   // background: url('../../assets/unsplash-writing-4.jpeg');
    background-size: cover;
    background-position: center center;
    display: flex;
@@ -301,12 +340,31 @@ body {
    justify-content: center;
    align-items: center;
    text-align: center;
+   position:relative;
+}
+
+.top-right:after {
+  content: '';
+  position: absolute;
+  display:block;
+  z-index:-1;
+  top: 0;
+  left: 0;
+  bottom:0;
+  right:0;
+  background: url('../../assets/unsplash-writing-4.jpeg') no-repeat center;
+  opacity:0.8;
+  background-size: cover;
+}
+
+.top-right:hover:after{
+    -webkit-filter: blur(5px);
 }
 .bottom-right {
    width: 100%;
    height: calc(33.3% - 10px);
    margin-top: 10px;
-   background: url('../../assets/unsplash-writing-desk.jpeg');
+   // background: url('../../assets/unsplash-writing-desk.jpeg');
    background-size: cover;
    background-position: center center;
    display: flex;
@@ -314,6 +372,26 @@ body {
    justify-content: center;
    align-items: center;
    text-align: center;
+   position:relative;
+}
+
+
+.bottom-right:after {
+  content: '';
+  position: absolute;
+  display:block;
+  z-index:-1;
+  top: 0;
+  left: 0;
+  bottom:0;
+  right:0;
+  background: url('../../assets/unsplash-writing-desk.jpeg') no-repeat center;
+  opacity:0.8;
+  background-size: cover;
+}
+
+.bottom-right:hover:after{
+    -webkit-filter: blur(5px);
 }
 
 .grid-tagline {
