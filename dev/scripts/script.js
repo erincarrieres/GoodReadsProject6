@@ -112,7 +112,7 @@ myApp.displayNYT = function(randomNumber) {
         $('.left-bottom-small-size .grid-filter').html('<a href="#">' + myVars.splicedArray[3] + '</a>');
         $('.bottom-right .grid-filter').html('<a href="#">' + myVars.splicedArray[4] + '</a>');
         myApp.changeCenter();
-        setInterval(myApp.changeCenter, 1000);
+        setInterval(myApp.changeCenter, 2750);
     });
 };
 
@@ -127,6 +127,12 @@ myApp.changeCenter = function(){
 
 /* event handlers for web app */
 
+myEvents.scroll = function(){
+    $('html,body').animate({
+    scrollTop: $("#book-section").offset().top},
+    'slow');
+}
+
 //when submitted....
 myEvents.onSubmit = function(){
     $('form').submit(function(e) {
@@ -134,16 +140,18 @@ myEvents.onSubmit = function(){
         myApp.getUserInput(); //grab the user input
         myApp.getAuthorID(myVars.new_user_input); //and turn it into an authorID + display the books
         $('form').trigger('reset');
+        setTimeout(myEvents.scroll, 3000);
     })
 };
 
 //when author name is clicked, display books
 myEvents.selectAuthor = function(){
-    $('.grid').on('click', '.grid-filter', function(e){
+    $('.grid').on('click', '.grid-filter, .blah', function(e){
         e.preventDefault();
         var authorClicked = $(this).text().replace(/\s/g, ''); //remove spaces from the author names again
         // console.log(authorClicked);
         myApp.getAuthorID(authorClicked);
+        setTimeout(myEvents.scroll, 2500);
     })
 };
 
@@ -177,6 +185,19 @@ myApp.init = function(){
     myEvents.selectAuthor();
     myEvents.selectBook();
     myApp.displayNYT(myApp.randomOffset(0, 1000));
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+
 };
 
 //Run on document ready
