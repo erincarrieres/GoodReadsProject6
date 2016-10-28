@@ -156,9 +156,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    padding-left: 15px; }
     .hero .hero-left #input {
       margin: 10% 0 3% 0; }
+    .hero .hero-left p {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.7rem;
+      font-family: "Work Sans"; }
 
 .hero-nav {
   position: fixed;
@@ -171,12 +177,26 @@ body {
   justify-content: space-between;
   color: white;
   opacity: 0;
+  z-index: 15;
   transition: 0.75s;
   padding: 0.5% 2% 0.5% 0.5%;
   font-family: 'Work Sans', sans-serif; }
-  .hero-nav img {
-    width: 3%;
-    height: 100%; }
+  .hero-nav .hero-nav-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .hero-nav .hero-nav-left span {
+      color: white; }
+    .hero-nav .hero-nav-left img {
+      width: 5%;
+      height: 100%;
+      margin-right: 10px; }
+    .hero-nav .hero-nav-left p {
+      font-size: 1.3rem; }
+
+.hero-arrow {
+  margin-left: 3px;
+  font-size: 1.4rem; }
 
 .hero-left-title {
   display: flex;
@@ -200,7 +220,22 @@ body {
   #book-list li {
     flex: 1 0 calc(25% - 20px);
     margin: 10px;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: 0.5s; }
+    #book-list li:hover {
+      transform: scale(1.1); }
+    #book-list li p {
+      margin-top: 15px;
+      position: relative; }
+      #book-list li p:after {
+        content: '';
+        width: 50%;
+        background: #00D1B4;
+        height: 2px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%); }
     #book-list li img {
       width: 111px;
       height: 148px; }
@@ -281,10 +316,10 @@ body {
 .left-bottom-small {
   flex: 1 0 calc(100% - 10px);
   height: calc(50% - 10px);
-  background: white;
+  background: #2E536B;
   margin-top: 10px;
   display: flex;
-  color: black;
+  color: white;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -292,6 +327,19 @@ body {
   .left-bottom-small img {
     width: 50%;
     height: 50%; }
+
+.blah {
+  position: relative;
+  padding: 0 10px; }
+  .blah:after {
+    content: '';
+    height: 2px;
+    background: #00D1B4;
+    width: 55%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: calc(100% + 20px);
+    left: 50%; }
 
 .left-bottom-small-size {
   width: 100%;
@@ -335,6 +383,11 @@ body {
   align-items: center;
   text-align: center; }
 
+.grid-tagline {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #D74F36; }
+
 .grid-filter {
   height: 100%;
   width: 100%;
@@ -343,6 +396,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
+  .grid-filter > * {
+    position: relative; }
+    .grid-filter > *:after {
+      content: '';
+      height: 2px;
+      background: #00D1B4;
+      width: 55%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: calc(100% + 20px);
+      left: 50%; }
 
 /*# sourceMappingURL=kelvin-style.css.map */
