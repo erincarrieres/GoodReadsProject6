@@ -11,18 +11,30 @@
   background: none;
   border-bottom: 3px solid black;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: 'Nothing You Could Do', cursive; }
   .hero .hero-left #input:focus {
     outline: none; }
 
-button, input, select, textarea {
+#submit-button {
   font-family: inherit;
   font-size: 100%;
   font-weight: bolder;
   margin: 0;
   background: none;
   padding: 1.5% 5.5%;
-  border: 3px solid black; }
+  border: 3px solid black;
+  transition: 0.5s; }
+  #submit-button:hover {
+    background: #D74F36;
+    color: white;
+    border: 3px solid transparent; }
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 /*# sourceMappingURL=heroNav.css.map */
