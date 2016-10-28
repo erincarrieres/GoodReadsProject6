@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="./dev/scripts/script.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
     <link rel="stylesheet" href="dev/styles/kelvin-style.css">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:700" rel="stylesheet">
     <link rel="stylesheet" href="heroNav.css">
+    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
     <script>
         $(window).scroll(function () {
             var vH = $(window).height();
@@ -24,68 +24,77 @@
 <body>
     <section class="hero">
         <div class="hero-nav">
-            <p>logo</p>
+            <div class="hero-nav-left">
+                <img src="assets/goodReadLogo-white.png" alt="">
+                <p>Book it<span>.</span></p>
+            </div>
             <p>search bar</p>
         </div>
         <div class="hero-left">
             <div class="hero-left-title">
                 <img src="assets/goodReadLogo.png" alt="">
-                <h1>Book it.</h1>
+                <h1>Book it<span class="red">.</span></h1>
             </div>
-            <input id="input" type="text" placeholder="Author's name goes here.">
-            <button id="submit-button" type="button">SUBMIT</button>
+            <form action="">
+                <input id="input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Author Name'" spellcheck="false" type="text" placeholder="Author Name">
+                <input id="submit-button" type="submit" value="SUBMIT">
+            </form>
+            <p>Don't know what to search? Check out some suggestions below.<span class="hero-arrow"><i class=""></i></span></p>
         </div>
     </section>
-    <div class="grid">
-        <section class="left-side">
-            <div class="left-top">
-                <div class="grid-filter">
-                    <div>left-top</div>
-                </div>
-            </div>
-            <div class="left-bottom">
-                <div class="left-bottom-left">
+    <section class="suggestion">
+        <div class="grid">
+            <section class="left-side">
+                <div class="left-top">
                     <div class="grid-filter">
-                        <div>left-bottom-left</div>
+                        <div>left-top</div>
                     </div>
                 </div>
-                <div class="left-bottom-right">
-                    <div class="left-bottom-small">
+                <div class="left-bottom">
+                    <div class="left-bottom-left">
                         <div class="grid-filter">
-                            <div class="grid-title">center</div>
-                            <div class="grid-tagline" >popular authors</div>
+                            <div>left-bottom-left</div>
                         </div>
                     </div>
-                    <div class="left-bottom-small-size">
-                        <div class="grid-filter">
-                            <div>left-bottom-right-bottom</div>
+                    <div class="left-bottom-right">
+                        <div class="left-bottom-small">
+                            <div class="blah">
+                                <div class="grid-title">center</div>
+                                <div class="grid-tagline" >suggested authors</div>
+                            </div>
+                        </div>
+                        <div class="left-bottom-small-size">
+                            <div class="grid-filter">
+                                <div>left-bottom-right-bottom</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="right-side">
-            <div class="top-right">
-                <div class="grid-filter">
-                    <div>top-right</div>
+            </section>
+            <section class="right-side">
+                <div class="top-right">
+                    <div class="grid-filter">
+                        <div>top-right</div>
+                    </div>
                 </div>
-            </div>
-            <div class="bottom-right">
-                <div class="grid-filter">
-                    <div>bottom-right</div>
+                <div class="bottom-right">
+                    <div class="grid-filter">
+                        <div>bottom-right</div>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </div>
-    <ul id="book-list"></ul>
-
-    <div class="book-overlay">
-        <p class="book-title">title</p>
-        <img class="book-image" src="" alt="">
-        <p class="book-rating">rating</p>
-        <p class="book-pages">pages</p>
-        <p class="book-date">date</p>
-        <button class="book-button" type="button">close</button>
-    </div>
+            </section>
+        </div>
+    </section>
+    <section class="book-display">
+        <ul id="book-list"></ul>
+        <div class="book-overlay">
+            <p class="book-title">title</p>
+            <img class="book-image" src="" alt="">
+            <p class="book-rating">rating</p>
+            <p class="book-pages">pages</p>
+            <p class="book-date">date</p>
+            <button class="book-button" type="button">close</button>
+        </div>
+    </section>
 </body>
 </html>

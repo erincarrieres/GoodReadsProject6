@@ -12,17 +12,37 @@
   width: 60%;
   border: none;
   background: none;
-  border-bottom: 5px solid black;
+  border-bottom: 3px solid black;
   text-align: center;
-  font-size: 30px;
+  font-size: 1.8rem;
+  font-family: 'Nothing You Could Do', cursive;
 }
 
-button, input, select, textarea {
+.hero .hero-left #input:focus {
+  outline: none;
+}
+
+#submit-button {
   font-family: inherit;
   font-size: 100%;
   font-weight: bolder;
   margin: 0;
   background: none;
-  padding: 2%;
-  border: 5px solid black;
+  padding: 1.5% 5.5%;
+  border: 3px solid black;
+  transition: 0.5s;
+}
+
+#submit-button:hover {
+  background: #D74F36;
+  color: white;
+  border: 3px solid transparent;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
