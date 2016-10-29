@@ -22,7 +22,13 @@ myApp.randomOffset = function(min, max){
 
 //retrieves user input and removes all spaces
 myApp.getUserInput = function(){
-    var user_input = $('input').val(); //variable to store the value of whatever the user inputs
+    var user_input = $('#hero-form input').val(); //variable to store the value of whatever the user inputs
+    myVars.new_user_input = user_input.replace(/\s/g, ''); //variable to store user_input WITHOUT any spaces
+    console.log(myVars.new_user_input);
+};
+
+myApp.getUserInputNav = function(){
+    var user_input = $('#magnify input').val(); //variable to store the value of whatever the user inputs
     myVars.new_user_input = user_input.replace(/\s/g, ''); //variable to store user_input WITHOUT any spaces
     console.log(myVars.new_user_input);
 };
@@ -75,12 +81,14 @@ myApp.getBookInfo = function(){
         //store all the books information into variables
         var imageUrl = myVars.books[i].image_url;
         var bookRating = parseFloat(myVars.books[i].average_rating).toFixed(1);
+        var bookUrl = myVars.books[i].link;
+        console.log(bookUrl);
         var bookTitle = myVars.books[i].title;
         var bookPages = myVars.books[i].num_pages;
         var bookDate = myVars.books[i].publication_month + ' / ' + myVars.books[i].publication_day + ' / ' + myVars.books[i].publication_year;
 
         //for each book in our array, create a list item with data attributes for all the book information in variables
-        $('#book-list').append('<li ' + 'data-pages=' + bookPages + ' data-title="' + bookTitle + '" data-imageUrl=' + imageUrl + ' data-bookRating=' + bookRating + ' data-bookDate="' + bookDate + '"><img src=' + imageUrl + '><br><p>' + bookTitle + '</p><br></li>');
+        $('#book-list').append('<li ' + 'data-link=' + bookUrl + 'data-pages=' + bookPages + ' data-title="' + bookTitle + '" data-imageUrl=' + imageUrl + ' data-bookRating=' + bookRating + ' data-bookDate="' + bookDate + '"><img src=' + imageUrl + '><br><p>' + bookTitle + '</p><br></li>');
     }
 };
 
@@ -135,11 +143,21 @@ myEvents.scroll = function(){
 
 //when submitted....
 myEvents.onSubmit = function(){
-    $('form').submit(function(e) {
+    $('#hero-form').submit(function(e) {
         e.preventDefault();
         myApp.getUserInput(); //grab the user input
         myApp.getAuthorID(myVars.new_user_input); //and turn it into an authorID + display the books
-        $('form').trigger('reset');
+        $('#hero-form').trigger('reset');
+        setTimeout(myEvents.scroll, 3000);
+    })
+};
+
+myEvents.onSubmitNav = function(){
+    $('#magnify').submit(function(e) {
+        e.preventDefault();
+        myApp.getUserInputNav(); //grab the user input
+        myApp.getAuthorID(myVars.new_user_input); //and turn it into an authorID + display the books
+        $('#magnify').trigger('reset');
         setTimeout(myEvents.scroll, 3000);
     })
 };
@@ -169,6 +187,7 @@ myEvents.selectBook = function(){
             $('.book-overlay .book-rating').html("Rating: " + $(this).attr('data-bookrating'));
             $('.book-overlay .book-date').html("Published: " + $(this).attr('data-bookdate'));
             $('.book-overlay .book-pages').html("Pages: " + $(this).attr('data-pages'));
+            $('.book-overlay .book-link').attr('href', $(this).attr('data-link'));
         };
     })
 
@@ -182,6 +201,7 @@ myEvents.selectBook = function(){
 /* initialize other methods */
 myApp.init = function(){
     myEvents.onSubmit();
+    myEvents.onSubmitNav();
     myEvents.selectAuthor();
     myEvents.selectBook();
     myApp.displayNYT(myApp.randomOffset(0, 1000));
