@@ -11,25 +11,22 @@
     <!--<link rel="stylesheet" href="heroNav.css">-->
     <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
     <script>
-        $(window).scroll(function () {
-            var vH = $(window).height();
-            if ($(window).scrollTop() >= vH) {
-                $('.hero-nav').css('opacity','1');
-            } else {
-                $('.hero-nav').css('opacity','0');
-            }
-        });
+
     </script>
 </head>
 <body>
+    <div class="loader">
+        <img src="assets/Preloader-transparent-2.gif" alt="">
+    </div>
     <section id="hero-section" class="hero">
         <div class="hero-nav">
             <div class="hero-nav-left">
                 <img src="assets/goodReadLogo-white.png" alt="">
                 <p>Book it<span>.</span></p>
             </div>
+            <div class="hero-nav-middle">Suggestions</div>
             <div class="hero-nav-right">
-                <form id="magnify">
+                <form id="magnify" autocomplete="off">
                     <input type="search" placeholder="Authors Name">
                 </form>
             </div>
@@ -39,8 +36,8 @@
                 <img src="assets/goodReadLogo.png" alt="">
                 <h1>Book it<span class="red">.</span></h1>
             </div>
-            <form id="hero-form" action="">
-                <input id="input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Author Name'" spellcheck="false" type="text" placeholder="Author Name">
+            <form id="hero-form" action="" autocomplete="off">
+                <input id="input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Author name here..'" spellcheck="false" type="text" placeholder="Author name here..">
                 <input id="submit-button" type="submit" value="SUBMIT">
             </form>
             <p>Don't know what to search? Check out some suggestions <span class="test"><a href="#suggestion-section">below.</a></span></p>

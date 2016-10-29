@@ -48,7 +48,6 @@ myApp.getAuthorID = function(new_input){ //passes in myVars.new_user_input that 
             xmlToJSON: true,
         }
     }).then(function(res) { //when data is returned.....do stuff below
-        console.log(res);
         var author_id = res.GoodreadsResponse.author.id; //access and store the author ID into a global variable for later
         myApp.getBooks(author_id); //this makes and ajax call for all the books from the above authorID
     });
@@ -82,7 +81,6 @@ myApp.getBookInfo = function(){
         var imageUrl = myVars.books[i].image_url;
         var bookRating = parseFloat(myVars.books[i].average_rating).toFixed(1);
         var bookUrl = myVars.books[i].link;
-        console.log(bookUrl);
         var bookTitle = myVars.books[i].title;
         var bookPages = myVars.books[i].num_pages;
         var bookDate = myVars.books[i].publication_month + ' / ' + myVars.books[i].publication_day + ' / ' + myVars.books[i].publication_year;
@@ -148,7 +146,8 @@ myEvents.onSubmit = function(){
         myApp.getUserInput(); //grab the user input
         myApp.getAuthorID(myVars.new_user_input); //and turn it into an authorID + display the books
         $('#hero-form').trigger('reset');
-        setTimeout(myEvents.scroll, 3000);
+        myEvents.loaderDisplay();
+        setTimeout(myEvents.scroll, 2700);
     })
 };
 
@@ -158,7 +157,8 @@ myEvents.onSubmitNav = function(){
         myApp.getUserInputNav(); //grab the user input
         myApp.getAuthorID(myVars.new_user_input); //and turn it into an authorID + display the books
         $('#magnify').trigger('reset');
-        setTimeout(myEvents.scroll, 3000);
+        myEvents.loaderDisplay();
+        setTimeout(myEvents.scroll, 2700);
     })
 };
 
@@ -166,10 +166,10 @@ myEvents.onSubmitNav = function(){
 myEvents.selectAuthor = function(){
     $('.grid').on('click', '.grid-filter, .blah', function(e){
         e.preventDefault();
-        var authorClicked = $(this).text().replace(/\s/g, ''); //remove spaces from the author names again
-        // console.log(authorClicked);
+        var authorClicked = $('.grid-title').text().replace(/\s/g, ''); //remove spaces from the author names again
         myApp.getAuthorID(authorClicked);
-        setTimeout(myEvents.scroll, 2500);
+        myEvents.loaderDisplay();
+        setTimeout(myEvents.scroll, 2700);
     })
 };
 
@@ -198,30 +198,55 @@ myEvents.selectBook = function(){
     })
 }
 
+myEvents.loaderDisplay = function(){
+    $('.loader').addClass('loader-fixed');
+    setTimeout(function(){
+        $('.loader').removeClass('loader-fixed')
+    }, 2900);
+}
+
+myEvents.changeNav = function(){
+}
+
 /* initialize other methods */
 myApp.init = function(){
     myEvents.onSubmit();
     myEvents.onSubmitNav();
     myEvents.selectAuthor();
     myEvents.selectBook();
+    myEvents.changeNav();
     myApp.displayNYT(myApp.randomOffset(0, 1000));
-    $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top
-                }, 1000);
-                return false;
-            }
-        }
-    });
-
 };
 
 //Run on document ready
 $(function(){
+    $(window).scroll(function () {
+        var vH = $(window).height();
+        if ($(window).scrollTop() >= vH - 65) {
+            $('.hero-nav').css('opacity','1');
+        } else {
+            $('.hero-nav').css('opacity','0');
+        }
+        var section = $('#suggestion-section').height();
+        var scroll = $(window).scrollTop();
+        if (scroll > vH + section) {
+            $('.hero-nav-middle').html('Your Books');
+        } else {
+            $('.hero-nav-middle').html('Suggestions');
+        }
+    });
     myApp.init();
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
 })
 
