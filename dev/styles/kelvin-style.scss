@@ -183,7 +183,8 @@ body {
    transform: translate(-50%, -50%);
    background: rgba(0, 0, 0, 0.7);
    opacity: 0;
-   z-index: -15;
+   transition: 0.5s;
+   visibility: hidden;
    color: white;
    padding: 2%;
    .book-title {
@@ -229,7 +230,7 @@ body {
 
 .book-overlay-fix {
    opacity: 1;
-   z-index: 5;
+   visibility: visible;
 }
 
 
