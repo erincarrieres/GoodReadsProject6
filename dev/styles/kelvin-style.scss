@@ -158,11 +158,21 @@ body {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
+   background: white;
+   color: black;
+   border: 5px solid $peach;
+   padding: 6%;
+   border-radius: 10px;
+   position: relative;
+   .book-link {
+     color: white;
+   }
 }
 
 .book-overlay {
    position: fixed;
-   width: 500px;
+   height: 100%;
+   width: 100%;
    top: 50%;
    left: 50%;
    text-align: center;
@@ -171,16 +181,17 @@ body {
    justify-content: center;
    align-items: center;
    transform: translate(-50%, -50%);
-   background: rgba(0, 0, 0, 0.9);
+   background: rgba(0, 0, 0, 0.7);
    opacity: 0;
-   z-index: -15;
+   transition: 0.5s;
+   visibility: hidden;
    color: white;
-   border: 5px solid $blue;
-   padding: 8%;
+   padding: 2%;
    .book-title {
       flex: 1 0 100%;
       margin-bottom: 26px;
       font-family: Work Sans;
+      font-size: 1.5rem;
    }
    .book-image {
    }
@@ -203,7 +214,7 @@ body {
       }
       .book-button {
          position: absolute;
-         color: white;
+         color: black;
          background: none;
          border: none;
          font-size: 1.5rem;
@@ -219,7 +230,7 @@ body {
 
 .book-overlay-fix {
    opacity: 1;
-   z-index: 15;
+   visibility: visible;
 }
 
 
@@ -709,7 +720,9 @@ footer {
     }
   }
   .book-overlay {
-    width: 100%;
+    .overlay-container {
+      width: 100%;
+    }
   }
 }
 
