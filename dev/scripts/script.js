@@ -177,8 +177,13 @@ myEvents.selectAuthor = function(){
 myEvents.selectBook = function(){
     $('#book-list').on('click', 'li',function(e){
         $('.book-overlay').removeClass('book-overlay-fix');
+        
         var tag = e.target.tagName;
         console.log(tag);
+
+        //background opacity when overlay is clicked
+        $('.full-overlay').addClass('display');
+        //
         // var test = $(this).attr('data-title')
         if (tag == 'IMG' || tag == 'P' || tag == 'LI') {
             $('.book-overlay').addClass('book-overlay-fix');
@@ -195,6 +200,7 @@ myEvents.selectBook = function(){
     $('.book-button').on('click',function(){
         $('.book-overlay').removeClass('book-overlay-fix');
         console.log('closed overlay');
+        $('.full-overlay').removeClass('display');
     })
 }
 
