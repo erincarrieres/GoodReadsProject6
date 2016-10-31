@@ -235,7 +235,7 @@ $(function(){
         }
         var section = $('#suggestion-section').height();
         var scroll = $(window).scrollTop();
-        if (scroll > vH + section) {
+        if (scroll > vH + section - 20) {
             $('.hero-nav-middle').html('Your Books');
         } else {
             $('.hero-nav-middle').html('Suggestions');
@@ -255,4 +255,3 @@ $(function(){
         }
       });
 })
-
